@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Following{% endblock %}
+
+{% block content %}
+
+<h1>🌌 Following</h1>
+
+{% for follow in following %}
+
+<div class="post">
+
+{% if follow.following.profile_picture %}
+
+<img
+src="{{ follow.following.profile_picture.url }}"
+width="60"
+height="60"
+style="border-radius:50%; object-fit:cover;">
+
+{% endif %}
+
+<h3>{{ follow.following.name }}</h3>
+
+<p>{{ follow.following.bio }}</p>
+
+<a href="/profile/{{ follow.following.id }}/">
+
+<button>
+View Profile
+</button>
+
+</a>
+
+</div>
+
+{% empty %}
+
+<p>Not following anyone yet.</p>
+
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}LUNA{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+🌙 <strong>LUNA</strong>
+</div>
+
+<div class="nav-links">
+
+{% if request.session.user_id %}
+
+<a href="/home/">🏠 Home</a>
+
+<a href="/search/">🔍 Search</a>
+
+<a href="/notifications/">🔔 Notifications</a>
+
+<a href="/profile/{{ request.session.user_id }}/">👤 Profile</a>
+
+<a href="/logout/">🚪 Logout</a>
+
+{% else %}
+
+<a href="/">🏠 Home</a>
+
+<a href="/login/">🔑 Login</a>
+
+<a href="/register/">📝 Register</a>
+
+{% endif %}
+
+</div>
+
+</nav>
+
+<div class="page">
+
+{% block content %}
+{% endblock %}
+
+</div>
+
+</body>
+
+</html>

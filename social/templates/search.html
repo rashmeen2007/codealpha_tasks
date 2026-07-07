@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Search
+{% endblock %}
+
+{% block content %}
+
+<div class="feed">
+
+<h1>🔍 Search Users</h1>
+
+<form method="GET">
+
+<input
+type="text"
+name="q"
+value="{{ query }}"
+placeholder="Search people...">
+
+<br><br>
+
+<button type="submit">
+Search
+</button>
+
+</form>
+
+<br>
+
+{% for user in users %}
+
+<div class="post">
+
+<div class="post-header">
+
+{% if user.profile_picture %}
+<img src="{{ user.profile_picture.url }}"
+class="profile-pic">
+{% endif %}
+
+<div>
+
+<a href="/profile/{{ user.id }}/"
+class="username">
+
+{{ user.name }}
+
+</a>
+
+<p>{{ user.bio }}</p>
+
+</div>
+
+</div>
+
+<br>
+
+<a href="/profile/{{ user.id }}/">
+<button>
+View Profile
+</button>
+</a>
+
+<form
+method="POST"
+action="/follow/{{ user.id }}/"
+style="display:inline;">
+
+{% csrf_token %}
+
+<button>
+Follow
+</button>
+
+</form>
+
+</div>
+
+{% empty %}
+
+<div class="post">
+
+No users found.
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

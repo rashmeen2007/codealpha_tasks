@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>{{ profile_user.name }}</title>
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+
+<body>
+
+<div class="container">
+{% if profile_user.profile_picture %}
+
+<img
+src="{{ profile_user.profile_picture.url }}"
+width="150"
+height="150"
+style="border-radius:50%; object-fit:cover;">
+
+{% else %}
+
+<img
+src="https://via.placeholder.com/150"
+width="150"
+height="150"
+style="border-radius:50%;">
+
+{% endif %}
+<h1>👤 {{ profile_user.name }}</h1>
+<p>Current Session User ID: {{ request.session.user_id }}</p>
+<p>Profile User ID: {{ profile_user.id }}</p>
+<p>Is Own Profile: {{ is_own_profile }}</p>
+
+<p>
+
+<a href="/followers/{{ profile_user.id }}/">
+Followers: {{ followers_count }}
+</a>
+
+</p>
+
+<p>
+
+<a href="/following/{{ profile_user.id }}/">
+Following: {{ following_count }}
+</a>
+
+</p>
+{% if is_own_profile %}
+
+<a href="/edit-profile/">
+<button>
+✏️ Edit Profile
+</button>
+</a>
+
+{% else %}
+
+{% if not is_own_profile %}
+
+<form method="POST" action="/follow/{{ profile_user.id }}/">
+
+{% csrf_token %}
+
+<button type="submit">
+
+{% if is_following %}
+
+✅ Following
+
+{% else %}
+
+👥 Follow
+
+{% endif %}
+
+</button>
+
+</form>
+
+{% endif %}
+
+{% endif %}
+
+<p>{{ profile_user.bio }}</p>
+
+<p>Posts: {{ posts.count }}</p>
+
+<a href="/home/">
+<button>🏠 Home</button>
+</a>
+
+<hr>
+
+{% for post in posts %}
+
+<div class="post">
+
+<p>{{ post.content }}</p>
+
+<p>❤️ {{ post.likes }}</p>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+
+</html>

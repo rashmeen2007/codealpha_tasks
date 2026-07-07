@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Followers{% endblock %}
+
+{% block content %}
+
+<h1>👥 Followers</h1>
+
+{% for follow in followers %}
+
+<div class="post">
+
+{% if follow.follower.profile_picture %}
+
+<img
+src="{{ follow.follower.profile_picture.url }}"
+width="60"
+height="60"
+style="border-radius:50%; object-fit:cover;">
+
+{% endif %}
+
+<h3>{{ follow.follower.name }}</h3>
+
+<p>{{ follow.follower.bio }}</p>
+
+<a href="/profile/{{ follow.follower.id }}/">
+
+<button>
+View Profile
+</button>
+
+</a>
+
+</div>
+
+{% empty %}
+
+<p>No followers yet.</p>
+
+{% endfor %}
+
+{% endblock %}
