@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Order Processing</title>
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+
+<h1>📦 Place Order</h1>
+
+<h3>{{ message }}</h3>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<label>Your Email:</label>
+
+<input type="email" name="email" required>
+
+<br><br>
+
+<label>Product Name:</label>
+
+<input type="text" name="product" required>
+
+<br><br>
+
+<button type="submit">
+
+📦 Place Order
+
+</button>
+
+</form>
+
+<br>
+
+<a href="/">⬅ Back to Home</a>
+</html>

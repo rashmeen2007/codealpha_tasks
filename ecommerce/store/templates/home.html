@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>My E-Commerce Store</title>
+<form action="/search/" method="GET">
+
+<input type="text"
+
+name="q"
+
+placeholder="🔍 Search shoes, headphones, watch, backpack"
+required>
+
+<button type="submit">
+
+Search
+
+</button>
+
+</form>
+
+<br>
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+
+<body>
+
+<h1>🛒 My E-Commerce Store</h1>
+
+<p class="welcome">
+
+Welcome to our online shopping store.
+
+Browse products and place your orders easily.
+
+</p>
+
+<h3>🛍️ Products</h3>
+
+<ul class="products">
+
+<li>
+
+<img src="{% static 'images/shoes.jpg' %}" width="180">
+
+<br><br>
+
+<a href="/product/shoes/">
+
+👟 Running Shoes
+
+</a>
+
+<br>
+
+₹2999
+
+</li>
+<li>
+
+<img src="{% static 'images/headphones.jpg' %}" width="180">
+
+<br><br>
+
+<a href="/product/headphones/">
+
+🎧 Wireless Headphones
+
+</a>
+
+<br>
+
+₹1999
+
+</li>
+
+<li>
+
+<img src="{% static 'images/watch.jpg' %}" width="180">
+
+<br><br>
+
+<a href="/product/watch/">
+
+⌚ Smart Watch
+
+</a>
+
+<br>
+
+₹3999
+
+</li>
+<li>
+
+<img src="{% static 'images/backpack.jpg' %}" width="180">
+
+<br><br>
+
+<a href="/product/backpack/">
+
+🎒 Backpack
+
+</a>
+
+<br>
+
+₹1499
+
+</li>
+
+</ul>
+
+<div class="menu">
+
+<a href="/">🏠 Home</a>
+
+<a href="/register/">📝 Register</a>
+
+<a href="/login/">🔐 Login</a>
+
+<a href="/cart/">🛒 Cart</a>
+
+<a href="/history/">📜 Order History</a>
+<a href="/logout/">🚪 Logout</a>
+
+</div>
+
+<hr>
+
+<footer>
+
+<hr>
+
+<p>
+
+© 2026 My E-Commerce Store
+
+</p>
+
+<p>
+
+CodeAlpha Full Stack Development Internship
+
+</p>
+
+<p>
+
+Developed by Rashmi
+
+</p>
+
+</footer>
+</body>
+
+</html>

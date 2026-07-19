@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Shopping Cart</title>
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+
+
+<body>
+
+<h1>🛒 Shopping Cart</h1>
+
+<p>Your selected items are shown below.</p>
+
+<table border="1" cellpadding="10">
+
+<tr>
+
+<th>Product</th>
+
+<th>Price</th>
+
+</tr>
+
+<tr>
+
+<td>👟 Running Shoes</td>
+
+<td>₹2999</td>
+
+</tr>
+
+<tr>
+
+<td>🎧 Wireless Headphones</td>
+
+<td>₹1999</td>
+
+</tr>
+
+</table>
+
+<h3>Total: ₹4998</h3>
+
+<br>
+
+<a href="/order/">
+
+<button>
+
+📦 Proceed to Order
+
+</button>
+
+</a>
+
+<br><br>
+
+<a href="/">⬅ Back to Home</a>
+
+</body>
+
+</html>

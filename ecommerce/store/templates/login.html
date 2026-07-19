@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Login</title>
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+
+<body>
+
+<h1>🔐 User Login</h1>
+
+<h3>{{ message }}</h3>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<label>Email:</label>
+
+<input type="email" name="email" required>
+
+<br><br>
+
+<label>Password:</label>
+
+<input type="password" name="password" required>
+
+<br><br>
+
+<button type="submit">
+
+Login
+
+</button>
+
+</form>
+
+<br>
+
+<a href="/">⬅ Back to Home</a>
+
+</body>
+
+</html>
